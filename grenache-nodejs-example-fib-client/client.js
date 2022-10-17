@@ -43,10 +43,12 @@ const rl = readline.createInterface({
 });
 
 function test_with_console() {
-  rl.question('Which product ? ', function (productId) {
-    rl.question('How many products ? ', function (productCount) {
-      submitOrder(11, Number(productId), Number(productCount));
-      promptUser();
+  rl.question('What is client ID ? ', function (clientId) {
+    rl.question('What is product ID ? ', function (productId) {
+      rl.question('How many products ? ', function (productCount) {
+        submitOrder(Number(clientId), Number(productId), Number(productCount));
+        promptUser();
+      });
     });
   });
 }
